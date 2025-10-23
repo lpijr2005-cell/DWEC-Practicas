@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica 2</title>
+</head>
+
+<body>
+    <div id="cuentas"></div>
+    <script>
+        function Cuentapalabras() {
+            let palabra;
+            const palabras = [];
+            //Pedimos las palabras al usuario
+            do {
+                palabra = window.prompt(
+                    'Dame una palabra para almacenarla. Si dejas vacio se saldrá del popup'
+                );
+                if (palabra) palabras.push(palabra);
+            } while (palabra || palabra != '');
+
+            //Contamos las veces que se repite cada palabra y las almacenamos en un nuevo array
+            const cuenta = new Map();
+            palabras.forEach((element) => {
+                if (cuenta.has(element)) {
+                    cuenta[element] += 1;
+                } else {
+                    cuenta.set(element, 1);
+                }
+            });
+
+            const mostrar = document.getElementById('cuentas');
+            mostrar.textContent = cuenta;
+            document.getElementById('cuentas').appendChild(mostrar);
+        }
+        Cuentapalabras();
+    </script>
+</body>
+
+</html>
