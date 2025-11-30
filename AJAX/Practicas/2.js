@@ -7,7 +7,8 @@ fetch('https://dummyjson.com/products/')
     }
   })
   .then((data) => {
-    //
+    //Obtenemos los datos de la API
+    
   })
   .catch((error) => {
     console.error('Error en la petición:', error);
