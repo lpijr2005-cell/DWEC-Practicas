@@ -1,7 +1,8 @@
-const id = document.getElementById('numero');
-const id_producto = id.textContent;
-
+//Funcion GET -- Parte 1 del ejercicio
 function click() {
+  const input = document.getElementById('numero');
+  const id_producto = input.value.trim();
+  //Fetch de la API
   fetch(`https://dummyjson.com/products/${id_producto}`)
     .then((response) => {
       if (response.ok) {
@@ -11,12 +12,23 @@ function click() {
       }
     })
     .then((data) => {
-      const product = data.results[0];
-      const name = product.title;
+      const p = document.createElement('p');
+      p.textContent = `ID: ${data.id} — Producto: ${data.title} — Precio: ${data.price}€`;
+      document.getElementById('resultado').appendChild(p);
     })
     .catch((error) => {
-      console.error('Error en la petición:', error);
+      const mostrar = document.createElement('p');
+      mostrar.textContent = `Error en la petición:, ${error}`;
+      document.getElementById('resultado').appendChild(mostrar);
     });
 }
 
-click();
+const rest = document.getElementById('datos');
+rest.addEventListener('submit', function (event) {
+  event.preventDefault(); // evita recargar la página
+  click();
+});
+
+//Funcion POST -- Parte 2 del ejercicio
+
+//Funcion STATUS -- Parte 3 del ejercicio
