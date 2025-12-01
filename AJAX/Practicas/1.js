@@ -13,6 +13,7 @@ fetch('https://randomuser.me/api/')
     //Los añadimos al html
     document.getElementById('image').src = image;
     document.getElementById('name').textContent = name;
+    document.getElementById('email').textContent = email;
     document.getElementById('address').textContent = address;
     document.getElementById('country').textContent = country;
   })
