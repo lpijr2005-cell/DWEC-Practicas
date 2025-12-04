@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica 1</title>
+</head>
+
+<body>
+    <button id="iniciar">Iniciar</button>
+    <script>
+        // Función para mostrar la notificación
+        function mostrarNotificacion() {
+            let n = new Notification('Información', {
+                body: '¡Puedes ir a mi página si haces clic!',
+            });
+            // Evento que se dispara al hacer clic en la notificación
+            n.addEventListener('click', () => {
+                window.open('video.html');
+            });
+        }
+        // Comprobar el estado del permiso de notificaciones
+        let permiso = Notification.permission;
+        if (permiso === 'default') {
+            Notification.requestPermission().then((resp) => {
+                if (resp === 'granted') {
+                    mostrarNotificacion();
+                }
+            });
+        } else if (permiso === 'granted') {
+            mostrarNotificacion();
+        }
+
+        const boton = document.getElementById('iniciar');
+        boton.addEventListener('click', mostrarNotificacion);
+    </script>
+</body>
+
+</html>
