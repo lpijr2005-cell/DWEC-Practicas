@@ -1,14 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Video</title>
 </head>
-
 <body>
-    <video src="example_MP4.mp4" id="video"></video>
-</body>
 
+    <!-- VIDEO CONTROLADO MEDIANTE API MULTIMEDIA -->
+    <video id="video" width="600">
+        <source src="./example_MP4.mp4" type="video/mp4">
+        Tu navegador no soporta el vídeo.
+    </video>
+
+    <!-- Texto donde aparecerá el tiempo total -->
+    <div id="info"></div>
+
+    <script>
+        const video = document.getElementById("video");
+        const info = document.getElementById("info");
+
+        // CLICK IZQUIERDO 
+        video.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();  
+            } else {
+                video.pause(); 
+            }
+        });
+
+        // CLICK DERECHO
+        video.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+
+            // Propiedad duration
+            const duracion = video.duration;
+
+            const minutos = Math.floor(duracion / 60);
+            const segundos = Math.floor(duracion % 60);
+
+            info.textContent = `Duración del vídeo: ${minutos} min ${segundos} s`;
+        });
+    </script>
+
+</body>
 </html>
