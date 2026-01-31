@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Ejercicio 1
+        alert('Bienvenido a la página');
+
+        //Ejercicio 2
+        var nombre = prompt('Cual es tu nombre?');
+        alert(`Bienvenid@ ${nombre}`);
+
+        //Ejercicio 3
+        var n1 = prompt('Dame un numero: ');
+        var n2 = prompt('Dame otro numero: ');
+
+        //Funcion para sumar ambos numeros
+        function suma(n1, n2) {
+            return parseInt(n1) + parseInt(n2); //ParseInt para pasar los strings a Integer
+        }
+
+        alert('Resultado: ' + suma(n1,n2));
+
+        //Ejercicio 4
+        edad = parseInt(prompt('Dime tu edad para saber si eres o no mayor de edad: '));
+        //Función para determinar si es o no mayor de eddad
+        function mayor(edad){
+            if(edad < 18) {
+                return 'Eres menor de edad';
+            }
+            else {
+                return 'Eres mayor de edad';
+            }
+        }
+
+        alert(mayor(edad));
+    </script>
+</body>
+</html>

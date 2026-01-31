@@ -21,7 +21,7 @@
             });
         }
         // Comprobar el estado del permiso de notificaciones
-        let permiso = Notification.permission;
+        let permiso = Notification.permission;  
         if (permiso === 'default') {
             Notification.requestPermission().then((resp) => {
                 if (resp === 'granted') {
