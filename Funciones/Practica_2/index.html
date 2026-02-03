@@ -10,32 +10,40 @@
 <body>
     <div id="cuentas"></div>
     <script>
-        function Cuentapalabras() {
+        function cuentapalabras() {
             let palabra;
             const palabras = [];
-            //Pedimos las palabras al usuario
+
+            // Pedimos palabras
             do {
                 palabra = window.prompt(
-                    'Dame una palabra para almacenarla. Si dejas vacio se saldrá del popup'
+                    'Dame una palabra para almacenarla. Si dejas vacío o cancelas se termina'
                 );
-                if (palabra) palabras.push(palabra);
-            } while (palabra || palabra != '');
+                if (palabra !== null && palabra !== '') {
+                    palabras.push(palabra);
+                }
+            } while (palabra !== null && palabra !== '');
 
-            //Contamos las veces que se repite cada palabra y las almacenamos en un nuevo array
+            // Contamos palabras
             const cuenta = new Map();
-            palabras.forEach((element) => {
-                if (cuenta.has(element)) {
-                    cuenta[element] += 1;
+            palabras.forEach(p => {
+                if (cuenta.has(p)) {
+                    cuenta.set(p, cuenta.get(p) + 1);
                 } else {
-                    cuenta.set(element, 1);
+                    cuenta.set(p, 1);
                 }
             });
 
+            // Mostramos resultados
             const mostrar = document.getElementById('cuentas');
-            mostrar.textContent = cuenta;
-            document.getElementById('cuentas').appendChild(mostrar);
+            mostrar.innerHTML = '';
+
+            cuenta.forEach((valor, clave) => {
+                mostrar.innerHTML += `${clave}: ${valor}<br>`;
+            });
         }
-        Cuentapalabras();
+
+        cuentapalabras();
     </script>
 </body>
 
