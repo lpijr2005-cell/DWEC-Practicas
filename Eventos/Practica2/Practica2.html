@@ -1,24 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practica 2</title>
+  <meta charset="UTF-8">
+  <title>Formulario con validación</title>
 </head>
-
 <body>
-    <form>
-        <label for="email">Email</label>
-        <input type="email" id="email">
-        <br>
-        <label for="pass">Contraseña</label>
-        <input type="password" id="password">
-        <br>
-        <input type="submit">
-    </form>
 
-    <script src="./Practica2.js"></script>
+  <h2>Formulario</h2>
+
+  <form id="formulario">
+    <div>
+      <label>Email:</label><br>
+      <input type="text" id="email">
+      <div id="emailError" class="error"></div>
+    </div>
+
+    <br>
+
+    <div>
+      <label>Password:</label><br>
+      <input type="password" id="password">
+      <div id="passwordError" class="error"></div>
+    </div>
+
+    <br>
+
+    <button type="submit" id="btnEnviar" disabled>Enviar</button>
+  </form>
+
+  <script src="./Practica2.js">
+    
+  </script>
+
 </body>
-
 </html>
