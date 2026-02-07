@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles.css">
     <title>Practica 2 Promesas</title>
 </head>
+
 <body>
-    <h2>Practica 2 Promesas</h2>
+
+    <h2>Listado de personas</h2>
+    <ul id="lista"></ul>
+
+    <h3>Añadir persona</h3>
+    <form id="addForm">
+        <input type="text" id="name" placeholder="Nombre">
+        <input type="text" id="phone" placeholder="Teléfono">
+        <input type="number" id="age" placeholder="Edad">
+        <button type="submit">Añadir persona</button>
+    </form>
+
+    <h3>Eliminar persona</h3>
+    <form id="deleteForm">
+        <input type="text" id="deletePhone" placeholder="Teléfono">
+        <button type="submit">Eliminar persona</button>
+    </form>
+
+    <p id="message"></p>
+
+
+    <script src="./2.js"></script>
 </body>
+
 </html>
